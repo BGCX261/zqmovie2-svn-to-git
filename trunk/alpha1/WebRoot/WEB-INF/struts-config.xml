@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="movieActionForm" type="net.ziqiang.movie.struts.forms.MovieActionForm"/>
+		<form-bean name="loginForm" type="net.ziqiang.movie.struts.forms.LoginForm"/>
+		<form-bean name="editUserForm" type="net.ziqiang.movie.struts.forms.EditUserForm"/>
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="loginForm" path="/loginForm.do"/>
+		<forward name="success" path="/msg/success_operation.html"/>
+		<forward name="failure" path="/msg/failure_operation.html"/>
+		<forward name="notauth" path="/msg/not_authenticated.html"/>			
+		<forward name="index" path="/manage/index.jsp"/>
+	</global-forwards>
+		
+	<action-mappings>
+		<action path="/loginForm" type="org.apache.struts.actions.ForwardAction" parameter="/login.jsp"/>
+		
+		<action path="/insertMovieForm"
+					type="net.ziqiang.movie.struts.actions.InsertMovieFormAction"
+					name="movieActionForm"
+					scope="session"
+					validate="false">
+			<forward name="success" path="/manage/InsertMovieForm.jsp"/>
+		</action>
+		
+		<action path="/editMovieForm"
+					type="net.ziqiang.movie.struts.actions.EditMovieFormAction"
+					name="movieActionForm"
+					scope="session"
+					validate="false">
+			<forward name="success" path="/manage/EditMovieForm.jsp"/>
+		</action>		
+	
+		<action path="/insertMovie"
+					type="net.ziqiang.movie.struts.actions.InsertMovieAction"
+					name="movieActionForm"
+					scope="session"
+					validate="true"
+					input="/manage/InsertMovieForm.jsp">
+		</action>
+		
+		<action path="/editMovie"
+					type="net.ziqiang.movie.struts.actions.EditMovieAction"
+					name="movieActionForm"
+					scope="session"
+					validate="true"
+					input="/manage/EditMovieForm.jsp">
+		</action>		
+		
+		<action 
+			path="/login"
+			type="net.ziqiang.movie.struts.actions.LoginAction"
+			name="loginForm"
+			scope="request"
+			validate="true"
+			input="/login.jsp">
+			<forward name="success" path="/manage/index.jsp"/>
+		</action>		
+		
+			<action path="/delete_movie" type="net.ziqiang.movie.struts.actions.DeleteMovieAction"
+				input="/manage/show_movielist.jsp">
+			</action>	
+
+		<action 
+			path="/logout"
+			type="net.ziqiang.movie.struts.actions.LogoutAction">
+			<forward name="login" path="/login.jsp"/>
+		</action>		
+				
+		<action path="/show_movielist" type="net.ziqiang.movie.struts.actions.ShowMovieListAction"
+				input="/manage/index.jsp">
+			<forward name="success" path="/manage/show_movielist.jsp"/>
+		</action>		
+
+		<action path="/verify_movie" type="net.ziqiang.movie.struts.actions.VerifyMovieAction"
+				input="/manage/show_movielist.jsp">
+		</action>
+		
+		<action 
+			path="/show_userlist" 
+			type="net.ziqiang.movie.struts.actions.ShowUserListAction"
+			input="/manage/index.jsp">
+			<forward name="success" path="/manage/show_userlist.jsp"/>
+		</action>			
+		
+		<action 
+				path="/editUserForm"
+				type="net.ziqiang.movie.struts.actions.EditUserFormAction"
+				name="editUserForm"
+				scope="session"
+				validate="false"
+				input="/manage/show_userlist.jsp">
+			<forward name="success" path="/manage/EditUserForm.jsp"/>
+		</action>
+		
+		<action 
+				path="/editUser"
+				type="net.ziqiang.movie.struts.actions.EditUserAction"
+				name="editUserForm"
+				scope="session"
+				validate="false"
+				input="/manage/EditUserForm.jsp">
+		</action>		
+		
+	</action-mappings>
+	
+	<message-resources parameter="net.ziqiang.movie.struts.ApplicationResources"/>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,
+                                                  /WEB-INF/validation.xml"/>
+   </plug-in>
+   	
+</struts-config>

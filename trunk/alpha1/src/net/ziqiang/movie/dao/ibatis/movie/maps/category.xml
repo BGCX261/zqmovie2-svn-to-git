@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="category" type="net.ziqiang.movie.domain.movie.Category" />
+	<typeAlias alias="hashmap" type="java.util.HashMap" />
+
+	<cacheModel type="LRU" id="newsCache_5m" readOnly="true" serialize="false">
+		<flushInterval minutes="5"/>
+		<property name="cache-size" value="10000"/>
+	</cacheModel>
+
+	<statement id="getCategoryById" parameterClass="int" resultClass="category" cacheModel="newsCache_5m">
+		SELECT
+			id AS categoryId,
+			name AS name
+		FROM board
+		WHERE id=#value#
+	</statement>
+	
+	<statement id="getCategoryNameById" parameterClass="int" resultClass="string"  cacheModel="newsCache_5m">
+		SELECT name
+		FROM board
+		WHERE id=#value#
+	</statement>
+	
+	<statement id="getCategory" resultClass="category">
+		SELECT
+			id AS categoryId,
+			name AS name
+		FROM board
+	</statement>
+</sqlMap>

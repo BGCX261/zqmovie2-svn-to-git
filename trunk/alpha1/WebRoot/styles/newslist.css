@@ -1,0 +1,97 @@
+#newslist{
+	width:270px;
+	float:right;
+}
+
+#new{
+	margin-top:10px;
+	border:solid 1px #ccc;
+	height:190px;
+	overflow:hidden;
+}
+
+#new_title{
+	border-bottom:solid 1px #ccc;
+	background:#E0EEEE;
+	padding:5px 5px 5px 20px;
+	font-size:13px;
+	font-weight:bold;
+}
+
+#new_content{
+	padding:5px 5px 5px 35px;
+}
+
+#new_content ul li{
+	list-style:url("../images/dot1.gif");
+	width:200px;
+}
+
+#special{
+	margin-top:10px;
+	border:solid 1px #ccc;
+	height:190px;
+	overflow:hidden;
+}
+
+#special_title{
+	border-bottom:solid 1px #ccc;
+	background:#E0EEEE;
+	padding:5px 5px 5px 5px;
+	font-size:13px;
+	font-weight:bold;
+}
+
+#special_content{
+	padding:5px 5px 5px 10px;
+}
+
+#special_content li img{
+	height:32px;
+	border:solid #ccc 1px;
+}
+
+#people{
+	margin-top:10px;
+	border:solid 1px #ccc;
+	height:190px;
+	overflow:hidden;
+}
+
+#people_title{
+	border-bottom:solid 1px #ccc;
+	background:#E0EEEE;
+	padding:5px 5px 5px 5px;
+	font-size:13px;
+	font-weight:bold;
+}
+
+#people_content{
+	padding:5px 5px 5px 35px;
+}
+
+#people_content ul li{
+	list-style:url("../images/dot1.gif");
+	width:200px;
+}
+
+#ad1{
+	border:solid 1px #ccc;
+	height:60px;
+	overflow:hidden;
+	margin-top: 10px
+}
+
+#ad2{
+	margin-top:10px;
+	border:solid 1px #ccc;
+	height:200px;
+	overflow:hidden;
+}
+
+#ad3{
+	margin-top:10px;
+	border:solid 1px #ccc;
+	height:400px;
+	overflow:hidden;
+}

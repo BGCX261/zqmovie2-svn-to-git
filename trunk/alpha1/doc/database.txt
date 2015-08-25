@@ -1,0 +1,71 @@
+1.about the database table
+
+user
+-------------------------------------------------------------------------------------------------------------------------------------
+column			comment								example
+privilege								AUTH_MANAGE;AUTH_MOVIE_DELETE;AUTH_MOVIE_INSERT;AUTH_MOVIE_EDIT
+-------------------------------------------------------------------------------------------------------------------------------------
+AUTH_MANAGE:base privilege
+AUTH_MOVIE_DELETE:privilege to delete movie
+AUTH_MOVIE_INSERT:privilege to insert movie
+AUTH_MOVIE_EDIT:privilege to edit movie
+--------------------------------------------------------------------------------------------------------------------------------------
+
+film
+--------------------------------------------------------------------------------------------------------------------------------------
+column			comment										  example
+bid				the foregin key
+style				style of a movie							   rmvb or avi
+size				size of a movie(M)							   655		
+intro				introduction of a movie					
+pic				path of movie poster						/pic/hero.jpg
+time				insert time of a movie						2007-05-06 12:00
+																			/movie/hero-cd1.rmvb
+path 			each line represents a file			    /movie/hero-cd2.rmvb
+																		    /movie/hero-cd3.rmvb
+dir				base url								            ftp://movie.ziqiang.net
+status			0:not verify 1:verified
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Each domain object maps to a table in the movie database.You can find the domain objects in the "/WEB-INF/classes/net/ziqiang/movie/domain/movie" and the mapping xml files in the "/WEB-INF/classes/net/ziqiang/movie/dao/ibatis/movie/maps" or "/WEB-INF/classes/net/ziqiang/movie/dao/ibatis/passport/maps"
+
+2.The domain object and the database table
+User.java----------user table
+Category.java------board table
+Movie.java---------film table
+3.The property and the column
+
+User.java				user
+--------------------------------------------
+property				column
+id								id
+username				username
+privilege					privilege
+status						status
+--------------------------------------------
+
+
+Category.java			board
+--------------------------------------------
+categoryId				id
+name					name
+--------------------------------------------
+
+
+Movie.java				film
+--------------------------------------------
+id								id
+categoryId				bid
+name						name
+time							time
+style							style
+size							size
+intro							intro
+pic							pic
+actor						actor
+hits							hits
+path							path
+dir							dir
+status						bid
+--------------------------------------------
+

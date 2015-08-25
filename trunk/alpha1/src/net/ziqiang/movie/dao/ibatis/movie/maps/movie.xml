@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="movie" type="net.ziqiang.movie.domain.movie.Movie" />
+	<typeAlias alias="hashmap" type="java.util.HashMap" />
+
+	<cacheModel type="LRU" id="newsCache_5m" readOnly="true" serialize="false">
+		<flushInterval minutes="5"/>
+		<property name="cache-size" value="10000"/>
+	</cacheModel>
+	<statement id="insertMovie" parameterClass="movie">
+		INSERT INTO film(lei,
+														name,
+														time,
+														style,
+														size,
+														intro,
+														pic,
+														actor,
+														hits,
+														path,
+														dir,
+														del,
+														bid)
+	VALUES(#lei#,
+					#name#,
+					#time#,
+					#style#,
+					#size#,
+					#intro#,
+					#pic#,
+					#actor#,
+					#hits#,
+					#path#,
+					#dir#,
+					#status#,
+					#categoryId#)												
+	</statement>
+	<statement id="getCountByBidStatus" parameterClass="hashmap" resultClass="int">
+		SELECT count(*) FROM film WHERE bid=#bid# AND del=#status#
+	</statement>
+	
+	<statement id="getCountByBid" parameterClass="int" resultClass="int">
+		SELECT count(*) FROM film WHERE bid=#value#
+	</statement>	
+	
+	<statement id="getMovieByBidStatus" parameterClass="hashmap" resultClass="movie">
+		SELECT 
+			id AS id,
+			lei AS lei,
+			name AS name,
+			time AS time,
+			style AS style,
+			size AS size,
+			intro AS intro,
+			pic AS pic,
+			actor AS actor,
+			hits AS hits,
+			path AS path,
+			dir AS dir,
+			del AS status,
+			bid AS categoryId
+		FROM film
+		WHERE bid=#bid# AND del=#status#
+		ORDER BY id DESC
+		LIMIT #offset#,#count#
+	</statement>
+	
+	<statement id="getMovieById" parameterClass="int" resultClass="movie">
+		SELECT
+			id AS id, 
+			lei AS lei,
+			name AS name,
+			time AS time,
+			style AS style,
+			size AS size,
+			intro AS intro,
+			pic AS pic,
+			actor AS actor,
+			hits AS hits,
+			path AS path,
+			dir AS dir,
+			del AS status,
+			bid AS categoryId			
+		FROM film WHERE id=#value#
+	</statement>
+	
+	<statement id="updateMovie" parameterClass="movie">
+		UPDATE film SET
+				lei=#lei#,
+				name=#name#,
+				time=#time#,
+				style=#style#,
+				size=#size#,
+				intro=#intro#,
+				pic=#pic#,
+				actor=#actor#,
+				hits=#hits#,
+				path=#path#,
+				dir=#dir#,
+				del=#status#,
+				bid=#categoryId#
+		WHERE id=#id#
+	</statement>
+	
+	<statement id="deleteMovie" parameterClass="int">
+		DELETE FROM film WHERE id=#value#
+	</statement>
+	
+	<statement id="verifyMovie" parameterClass="hAShmap">
+		UPDATE film SET
+			del=#status#
+		WHERE id=#id#
+	</statement>
+	<statement id="getMovieNameById" parameterClass="int" resultClass="String">
+		SELECT name FROM film WHERE id=#value#
+	</statement>
+</sqlMap>

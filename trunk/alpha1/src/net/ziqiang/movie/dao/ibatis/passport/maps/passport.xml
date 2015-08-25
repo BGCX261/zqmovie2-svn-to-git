@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="user" type="net.ziqiang.movie.domain.User" />
+	<typeAlias alias="hashmap" type="java.util.HashMap" />
+
+	<statement id="getUserByUsername" parameterClass="string" resultClass="user">
+		SELECT
+			user_auth.userId AS id,
+			user_auth.username,
+			user_auth.password,
+			user_info.realname
+		FROM user_auth,user_info
+		WHERE user_auth.username=#value# AND user_info.username=#value# AND status=1
+	</statement>
+
+	<statement id="getRealnameById" parameterClass="int" resultClass="string">
+		SELECT realname FROM user_info WHERE userId=#value#
+	</statement>
+</sqlMap>

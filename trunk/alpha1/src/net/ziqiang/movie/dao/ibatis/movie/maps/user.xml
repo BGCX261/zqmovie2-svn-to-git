@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="user" type="net.ziqiang.movie.domain.User" />
+	<typeAlias alias="hashmap" type="java.util.HashMap" />
+
+	<statement id="getUserByUsername" parameterClass="string" resultClass="user">
+		SELECT * FROM user
+		WHERE username=#value#
+	</statement>
+	
+	<statement id="insertUser" parameterClass="user">
+		INSERT INTO user(id,username,privilege,status)
+		VALUES(#id#,#username#,"AUTH_USER;",1)
+	</statement>
+	
+	<statement id="getUserCount" resultClass="int">
+		SELECT count(*) FROM user
+	</statement>
+
+	<statement id="updateUserPrivilege" parameterClass="hashmap">
+		UPDATE user SET
+				privilege=#privilege#
+		WHERE id=#id#
+	</statement>
+	
+	<statement id="getUsers" resultClass="user">
+		SELECT * FROM user
+	</statement>
+	
+	<statement id="getSomeUsers" parameterClass="hashmap" resultClass="user">
+		SELECT * FROM user LIMIT #offset#,#count#
+	</statement>
+	
+	<statement id="getUserById" parameterClass="int" resultClass="user">
+		SELECT * FROM user WHERE id=#value#
+	</statement>
+	
+</sqlMap>

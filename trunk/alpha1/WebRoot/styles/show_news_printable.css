@@ -1,0 +1,25 @@
+#title{
+	text-align:center;
+	margin:0 auto;
+	font-size:16px;
+	font-weight:bold;
+	color:#03005c;
+	padding-top:5px;
+	padding-bottom:10px;
+	border-bottom:solid 1px #ccc;
+}
+
+#author{
+	margin:0 auto;
+	text-align:center;
+	margin:0 auto;
+	font-size:12px;	
+	padding-top:5px;
+	padding-bottom:10px;
+}
+
+#content{
+	margin:0 auto;
+	overflow:hidden;
+	padding-bottom:30px;
+}

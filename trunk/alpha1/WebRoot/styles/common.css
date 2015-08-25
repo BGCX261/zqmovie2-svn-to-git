@@ -1,0 +1,169 @@
+/*全局定义*/
+body{
+	font-size:12px;
+	margin:0;
+	padding:0;
+}
+
+img{
+	margin:0;
+	padding:0;
+}
+
+form,p,ul,p,h2,h3,h4,h1{
+	margin:0;padding:0;
+}
+
+ul{
+	list-style:none;
+}
+
+a:link,a:visited{
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+input{
+	border:solid;
+	border-width:1px;
+	border-color:#ccc;
+}
+
+input:hover{
+	border:solid;
+	border-width:1px;
+	border-color:#0e61b2;
+}
+
+select{
+	border:solid;
+	border-width:1px;
+	border-color:#ccc;
+}
+
+select:hover{
+	border:solid;
+	border-width:1px;
+	border-color:#0e61b2;
+}
+
+textarea{
+	border:solid;
+	border-width:1px;
+	border-color:#ccc;
+}
+
+textarea:hover{
+	border:solid;
+	border-width:1px;
+	border-color:#0e61b2;
+}
+
+/*全局定义结束*/
+#top{
+	width:950px;
+	padding-bottom:1px;
+	font-size:12px;
+	border-bottom:solid #FFD700 2px;
+	height:100px;
+	margin: 0 auto;
+}
+
+#textTop{
+	color:#777;
+	text-align:right;
+}
+
+#nav{
+	width:650px;
+	color:#000;
+	font-size: 16px;
+	height:18px;
+	margin: 0 auto;
+	margin-top:56px;
+}
+
+#nav a:hover{
+	text-decoration:none;
+	font-weight:bold;
+}
+}
+#nav ul li{
+	display: inline;
+	
+}
+#nav ul li .unchecked{
+	float:left;
+	padding:5px 5px 4px 5px;
+	width:90px;
+	height:20px;
+	margin-left:5px;
+	text-align:center;
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	color:#000;
+	line-height:21px;
+	background:#f7f7f7;
+}
+#nav ul li .unchecked:hover{
+	background:url("../images/tabbg1.gif") 0 100% repeat-x;
+}
+
+#nav ul li .checked{
+	float:left;
+	padding:5px 5px 4px 5px;
+	width:90px;
+	height:20px;
+	margin-left:5px;
+	text-align:center;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+	color:#000;
+	font-weight: bold;
+	line-height:21px;
+}
+
+#nav2{
+	width:767px;
+	color:#000;
+	font-size: 12px;
+	height:18px;
+	padding-left: 183px;
+}
+
+#nav2 ul li{
+	float:left;
+	width:50px;
+	padding:0 1px 0 1px;
+	height:20px;
+	margin-left:1px;
+	border-left:1px dashed #ccc;
+	color:#000;
+	line-height:22px;
+}
+
+#nav2 a{
+	color:#000;
+}
+/*页脚定义*/  
+#footer {
+	width: 950px;
+	background:#ffffFF;
+	float: left;
+	text-align:center;
+	border-top:solid 1px #ccc;	
+	height:80px;
+	padding-top:10px;
+	margin: 10px auto 0;
+	margin-bottom:20px
+}
+.error{
+	color:red;
+	font-size:12px;
+}
+/*页脚结束*/
